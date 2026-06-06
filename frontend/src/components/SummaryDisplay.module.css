@@ -1,0 +1,423 @@
+/* SummaryDisplay.module.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fade-in 0.5s ease forwards;
+}
+
+/* ── Result Header ────────────────────────────── */
+.resultHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 16px 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.resultHeader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-emerald), transparent);
+    opacity: 0.7;
+}
+
+.resultTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.resultDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--status-ok);
+    box-shadow: 0 0 8px var(--status-ok);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.resultHeading {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+}
+
+.metaBadges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.metaBadge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+}
+
+.metaBadge_cyan {
+    color: var(--neon-cyan);
+    background: rgba(0, 245, 212, 0.08);
+    border-color: rgba(0, 245, 212, 0.2);
+}
+
+.resultActions {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    transition: all 0.15s;
+    cursor: pointer;
+}
+
+.actionBtn:hover {
+    border-color: rgba(0, 245, 212, 0.3);
+    color: var(--neon-cyan);
+    background: rgba(0, 245, 212, 0.06);
+}
+
+.actionBtnActive {
+    border-color: rgba(16, 252, 164, 0.4) !important;
+    color: var(--status-ok) !important;
+    background: rgba(16, 252, 164, 0.08) !important;
+}
+
+/* ── Sections Grid ────────────────────────────── */
+.sectionsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Section Card ─────────────────────────────── */
+.card {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px 24px;
+    overflow: hidden;
+    animation: fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-1px);
+}
+
+.card_cyan {
+    border-left: 3px solid rgba(0, 245, 212, 0.5);
+}
+
+.card_blue {
+    border-left: 3px solid rgba(14, 165, 233, 0.5);
+}
+
+.card_emerald {
+    border-left: 3px solid rgba(16, 252, 164, 0.5);
+}
+
+.card_warn {
+    border-left: 3px solid rgba(251, 191, 36, 0.5);
+}
+
+.card_violet {
+    border-left: 3px solid rgba(167, 139, 250, 0.5);
+}
+
+.card_cyan:hover {
+    box-shadow: 0 4px 28px rgba(0, 245, 212, 0.1);
+    border-color: rgba(0, 245, 212, 0.25);
+}
+
+.card_blue:hover {
+    box-shadow: 0 4px 28px rgba(14, 165, 233, 0.1);
+    border-color: rgba(14, 165, 233, 0.25);
+}
+
+.card_emerald:hover {
+    box-shadow: 0 4px 28px rgba(16, 252, 164, 0.1);
+    border-color: rgba(16, 252, 164, 0.25);
+}
+
+.card_warn:hover {
+    box-shadow: 0 4px 28px rgba(251, 191, 36, 0.1);
+    border-color: rgba(251, 191, 36, 0.25);
+}
+
+.card_violet:hover {
+    box-shadow: 0 4px 28px rgba(167, 139, 250, 0.1);
+    border-color: rgba(167, 139, 250, 0.25);
+}
+
+.cardShine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, var(--glass-shine) 0%, transparent 100%);
+    pointer-events: none;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.cardIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+    border: 1px solid;
+}
+
+.cardIcon_cyan {
+    background: rgba(0, 245, 212, 0.1);
+    color: var(--neon-cyan);
+    border-color: rgba(0, 245, 212, 0.25);
+}
+
+.cardIcon_blue {
+    background: rgba(14, 165, 233, 0.1);
+    color: var(--neon-blue);
+    border-color: rgba(14, 165, 233, 0.25);
+}
+
+.cardIcon_emerald {
+    background: rgba(16, 252, 164, 0.1);
+    color: var(--neon-emerald);
+    border-color: rgba(16, 252, 164, 0.25);
+}
+
+.cardIcon_warn {
+    background: rgba(251, 191, 36, 0.1);
+    color: var(--status-warn);
+    border-color: rgba(251, 191, 36, 0.25);
+}
+
+.cardIcon_violet {
+    background: rgba(167, 139, 250, 0.1);
+    color: var(--neon-violet);
+    border-color: rgba(167, 139, 250, 0.25);
+}
+
+.cardTitleGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.cardTitle {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+.cardTitle_cyan {
+    color: var(--neon-cyan);
+}
+
+.cardTitle_blue {
+    color: var(--neon-blue);
+}
+
+.cardTitle_emerald {
+    color: var(--neon-emerald);
+}
+
+.cardTitle_warn {
+    color: var(--status-warn);
+}
+
+.cardTitle_violet {
+    color: var(--neon-violet);
+}
+
+.cardDesc {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.cardNum {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 300;
+    opacity: 0.12;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.cardNum_cyan {
+    color: var(--neon-cyan);
+}
+
+.cardNum_blue {
+    color: var(--neon-blue);
+}
+
+.cardNum_emerald {
+    color: var(--neon-emerald);
+}
+
+.cardNum_warn {
+    color: var(--status-warn);
+}
+
+.cardNum_violet {
+    color: var(--neon-violet);
+}
+
+.cardContent {
+    padding-left: 50px;
+}
+
+.contentText {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+.missingText {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.cardAccentLine {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    opacity: 0.3;
+}
+
+.accentLine_cyan {
+    background: linear-gradient(90deg, var(--neon-cyan), transparent);
+}
+
+.accentLine_blue {
+    background: linear-gradient(90deg, var(--neon-blue), transparent);
+}
+
+.accentLine_emerald {
+    background: linear-gradient(90deg, var(--neon-emerald), transparent);
+}
+
+.accentLine_warn {
+    background: linear-gradient(90deg, var(--status-warn), transparent);
+}
+
+.accentLine_violet {
+    background: linear-gradient(90deg, var(--neon-violet), transparent);
+}
+
+/* ── Raw JSON Panel ───────────────────────────── */
+.rawPanel {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.rawToggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-layer1);
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    text-align: left;
+    transition: background 0.15s;
+    cursor: pointer;
+    border: none;
+}
+
+.rawToggle:hover {
+    background: var(--bg-layer2);
+    color: var(--text-secondary);
+}
+
+.rawToggleIcon {
+    font-size: 9px;
+    color: var(--neon-cyan);
+}
+
+.rawToggleMono {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--neon-cyan);
+}
+
+.rawToggleSub {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+}
+
+.rawJson {
+    background: var(--bg-layer2);
+    border-top: 1px solid var(--glass-border);
+    padding: 20px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}

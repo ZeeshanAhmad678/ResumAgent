@@ -1,0 +1,134 @@
+/* Header.module.css */
+
+.header {
+    position: relative;
+    border-bottom: 1px solid var(--glass-border);
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 245, 212, 0.04) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.scanLine {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--neon-cyan) 40%,
+            var(--neon-emerald) 60%,
+            transparent 100%);
+    opacity: 0.6;
+    top: 0;
+    animation: scan-header 6s ease-in-out infinite;
+}
+
+@keyframes scan-header {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scaleX(0.3);
+        transform-origin: left;
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+.inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 20px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logoMark {
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.6));
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.titleGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.accent {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 20px rgba(0, 245, 212, 0.6);
+}
+
+.tagline {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* ── Badges ───────────────────────────────────── */
+.badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    border: 1px solid;
+}
+
+.badge_cyan {
+    color: var(--neon-cyan);
+    background: rgba(0, 245, 212, 0.08);
+    border-color: rgba(0, 245, 212, 0.25);
+}
+
+.badge_violet {
+    color: var(--neon-violet);
+    background: rgba(167, 139, 250, 0.08);
+    border-color: rgba(167, 139, 250, 0.25);
+}
+
+.badge_emerald {
+    color: var(--neon-emerald);
+    background: rgba(16, 252, 164, 0.08);
+    border-color: rgba(16, 252, 164, 0.25);
+}

@@ -1,0 +1,24 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Environment Secrets ---
+.env
+
+# --- Database ---
+*.db
+*.sqlite
+*.sqlite3
+
+# --- IDE & OS ---
+.vscode/
+.DS_Store
+.idea/
